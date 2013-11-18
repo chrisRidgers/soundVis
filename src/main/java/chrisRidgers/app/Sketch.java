@@ -5,13 +5,15 @@ import ddf.minim.*;
 public class Sketch extends PApplet
 {
   Stripe[] stripes = new Stripe[50];
+  String track; 
   Minim minim;
   AudioPlayer player;
 
   public void setup()
-  {
+  {              
+    track = this.args[0];
     minim = new Minim(this);
-    player = minim.loadFile(this.args[0]);
+    player = minim.loadFile(track);
     player.play();
     frameRate(60);
     size(400, 400);
