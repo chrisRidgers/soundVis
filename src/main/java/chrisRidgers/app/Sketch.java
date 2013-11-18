@@ -1,12 +1,18 @@
 package chrisRidgers.app;
 import processing.core.*;
+import ddf.minim.*;
 
 public class Sketch extends PApplet
 {
   Stripe[] stripes = new Stripe[50];
+  Minim minim;
+  AudioPlayer player;
 
   public void setup()
   {
+    minim = new Minim(this);
+    player = minim.loadFile(this.args[0]);
+    player.play();
     frameRate(60);
     size(400, 400);
     if(frame!=null)
@@ -30,4 +36,3 @@ public class Sketch extends PApplet
     }
   }
 }
-  
