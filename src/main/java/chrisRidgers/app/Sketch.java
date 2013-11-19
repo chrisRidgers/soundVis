@@ -4,37 +4,51 @@ import ddf.minim.*;
 
 public class Sketch extends PApplet
 {
-  Stripe[] stripes = new Stripe[50];
+  Ripple[] ripples = new Ripple[20];
+  boolean rippdone = false;
   String track; 
   Minim minim;
   AudioPlayer player;
 
   public void setup()
   {              
+    ellipseMode(CENTER);
     track = this.args[0];
     minim = new Minim(this);
     player = minim.loadFile(track);
     player.play();
     frameRate(60);
     size(400, 400);
+    noFill();
+    background(0);
+
     if(frame!=null)
     {
       frame.setResizable(true);
     }
-    background(100);
-    for(int i=0;i<stripes.length;i++)
+    
+    for(int i=0;i<ripples.length;i++)
     {
-      stripes[i]=new Stripe(this);
+      ripples[i]=new Ripple(this);
     }
   }
 
   public void draw()
   {
-    background(100);
-    for(int i=0;i<stripes.length;i++)
+    background(0);
+    for(int i=0;i<ripples.length;i++)
     {
-      stripes[i].move();
-      stripes[i].display();
+      ripples[i].move();
+      ripples[i].display();
+    }
+    if(ripples[ripples.length-1].o==0)rippdone=true;
+    if(rippdone)
+    {
+    for(int i=0;i<ripples.length;i++)
+    {
+      ripples[i]=new Ripple(this);
+    }
+      rippdone = false;
     }
   }
 }
