@@ -1,11 +1,11 @@
 package chrisRidgers.app;
 import processing.core.*;
 import ddf.minim.*;
+import java.util.*;
 
 public class Sketch extends PApplet
 {
-  Ripple[] ripples = new Ripple[20];
-  boolean rippdone = false;
+  ArrayList ripples = new ArrayList();
   String track; 
   Minim minim;
   AudioPlayer player;
@@ -26,29 +26,22 @@ public class Sketch extends PApplet
     {
       frame.setResizable(true);
     }
-    
-    for(int i=0;i<ripples.length;i++)
-    {
-      ripples[i]=new Ripple(this);
-    }
   }
 
   public void draw()
   {
     background(0);
-    for(int i=0;i<ripples.length;i++)
-    {
-      ripples[i].move();
-      ripples[i].display();
-    }
-    if(ripples[ripples.length-1].o==0)rippdone=true;
-    if(rippdone)
-    {
-    for(int i=0;i<ripples.length;i++)
-    {
-      ripples[i]=new Ripple(this);
-    }
-      rippdone = false;
+    if(ripples.size()<255)ripples.add(new Ripple(this)); 
+    System.out.println(ripples.size());
+    for(int i=0;i<ripples.size()-1;i++){
+      Ripple test = (Ripple) ripples.get(i);
+      test.move();
+      test.display();
+      if(test.o<=0)
+      {
+	ripples.remove(i);
+	ripples.trimToSize();
+      }
     }
   }
 }
