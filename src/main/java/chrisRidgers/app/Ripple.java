@@ -27,7 +27,7 @@ public class Ripple
   {
     if(o>0)
     {
-      o-=22;
+      o-=30;
       r+=1;
     }
   }

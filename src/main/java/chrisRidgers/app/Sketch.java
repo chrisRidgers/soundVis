@@ -22,7 +22,7 @@ public class Sketch extends PApplet
     fft = new FFT(player.bufferSize(), player.sampleRate());
     fft.window(FFT.HAMMING);
     fft.logAverages(20,20);
-    frameRate(22);
+    frameRate(30);
     size(400,400);
     noFill();
     stroke(255);
