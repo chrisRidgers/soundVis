@@ -22,7 +22,7 @@ public class Sketch extends PApplet
     fft = new FFT(player.bufferSize(), player.sampleRate());
     fft.window(FFT.HAMMING);
     fft.logAverages(20,20);
-    frameRate(60);
+    frameRate(22);
     size(400,400);
     noFill();
     stroke(255);
@@ -44,15 +44,14 @@ public class Sketch extends PApplet
     float w = width/(float)fft.avgSize();
     for(int i=0;i<fft.avgSize();i++)
     {
-      rect(i*w, height/2, i*w+w, height/2-Math.round(2*20*Math.log10(100*fft.getAvg(i))));
-      //System.out.println(fft.getAvg(i));
+      rect(i*w, height, i*w+w, height/1-Math.round(2*20*Math.log10(100*fft.getAvg(i))));
+      if(fft.getAvg(i)>260)System.out.println(fft.getAvg(i));
+      if(fft.getAvg(i)>1)ripples.add(new Ripple(this, i, fft.getAvg(i)));
     }
-    if(ripples.size()<255)ripples.add(new Ripple(this)); 
-    //System.out.println(ripples.size());
     for(int i=0;i<ripples.size()-1;i++){
       Ripple test = (Ripple) ripples.get(i);
-      test.move();
       test.display();
+      test.move();
       if(test.o<=0)
       {
 	ripples.remove(i);
@@ -60,7 +59,7 @@ public class Sketch extends PApplet
       }
     }
 
-    System.out.println(w);
-    System.out.println(fft.avgSize());
+    //System.out.println(w);
+    //System.out.println(fft.avgSize());
   }
 }
