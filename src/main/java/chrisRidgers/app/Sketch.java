@@ -25,9 +25,10 @@ public class Sketch extends PApplet
 
     size(400,400);
     frameRate(30);
+    colorMode(HSB);
     background(0);
-    stroke(255);
     noFill();
+    stroke(128);
     ellipseMode(CENTER);
     rectMode(CORNERS);
 
@@ -41,7 +42,6 @@ public class Sketch extends PApplet
   {
     background(0);
     stroke(128);
-    noFill();
 
     fft.forward(player.mix);
     float w = width/(float)fft.avgSize();
