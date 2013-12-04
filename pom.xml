@@ -1,95 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>chrisRidgers.app</groupId>
+  <groupId>chrisRidgers</groupId>
   <artifactId>soundVis</artifactId>
-  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
   <name>soundVis</name>
-  <url>http://maven.apache.org</url>
-  <repositories>
-    <!--other repositories if any-->
-    <repository>
-      <id>project.local</id>
-      <name>project</name>
-      <url>file:${project.basedir}/repo</url>
-    </repository> 
-  </repositories>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>processing</groupId>
-      <artifactId>processing</artifactId>
-      <version>2.1</version>
-    </dependency>
-    <dependency>
-      <groupId>codecompartmental</groupId>
-      <artifactId>minim</artifactId>
-      <version>2.02</version>
-    </dependency>
-    <dependency>
-      <groupId>codecompartmental</groupId>
-      <artifactId>minim-spi</artifactId>
-      <version>2.02</version>
-    </dependency>
-    <dependency>
-      <groupId>codecompartmental</groupId>
-      <artifactId>jsminim</artifactId>
-      <version>2.02</version>
-    </dependency>
-    <dependency>
-      <groupId>codecompartmental</groupId>
-      <artifactId>tritonus_aos</artifactId>
-      <version>2.02</version>
-    </dependency>       
-    <dependency>
-      <groupId>codecompartmental</groupId>
-      <artifactId>tritonus_share</artifactId>
-      <version>2.02</version>
-    </dependency>       
-    <dependency>
-      <groupId>codecompartmental</groupId>
-      <artifactId>mp3spi</artifactId>
-      <version>1.9.4</version>
-    </dependency>       
-    <dependency>
-      <groupId>codecompartmental</groupId>
-      <artifactId>jl</artifactId>
-      <version>1.0</version>
-    </dependency>       
-  </dependencies>
-  <build>
-    <plugins>
-      <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-jar-plugin</artifactId>
-	<version>2.4</version>
-	<configuration>
-	  <archive>
-	    <manifest>
-	      <mainClass>chrisRidgers.app.App</mainClass>
-	    </manifest>
-	  </archive>
-	</configuration>
-      </plugin> 
-      <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-shade-plugin</artifactId>
-	<version>2.1</version>
-	<executions>
-	  <execution>
-	    <phase>package</phase>
-	    <goals>
-	      <goal>shade</goal>
-	    </goals>
-	  </execution>
-	</executions>
-      </plugin>
-    </plugins>
-  </build>
+  <modules>
+    <module>soundVisApp</module>
+    <module>processing</module>
+    <module>minim</module>
+  </modules>
 </project>
