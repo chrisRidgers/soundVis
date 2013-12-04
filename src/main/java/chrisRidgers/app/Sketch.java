@@ -50,7 +50,7 @@ public class Sketch extends PApplet
     {
       rect(i*w, height, i*w+w, height/1-Math.round(2*20*Math.log10(100*fft.getAvg(i))));
       //if(fft.getAvg(i)>260)System.out.println(fft.getAvg(i));
-      if(fft.getAvg(i)>1)ripples.add(new Ripple(this, i, fft.getAvg(i)));
+      if(fft.getAvg(i)>10)ripples.add(new Ripple(this, i, fft.getAvg(i)));
     }
 
     for(int i=0;i<ripples.size()-1;i++)
