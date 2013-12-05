@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Sketch extends PApplet
 {
-  ArrayList ripples = new ArrayList()					//Allows non-fixed number of elements
+  ArrayList ripples = new ArrayList();					//Allows non-fixed number of elements
   String track; 							//Provides a reference to the track submitted on the command line
   Minim minim;								//Creates an object of the Minim object to provide access to sound method calls
   AudioPlayer player;							//Loads a sound file into memory, provides features such as navigation and audio out
