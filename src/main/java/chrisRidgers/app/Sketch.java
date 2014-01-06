@@ -1,5 +1,6 @@
 package chrisRidgers.app;
 import processing.core.*;
+import processing.video.*;
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import java.util.*;

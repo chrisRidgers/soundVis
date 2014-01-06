@@ -1,5 +1,6 @@
 package chrisRidgers.app;
 import processing.core.*;
+import processing.video.*;
 
 public class App
 {
