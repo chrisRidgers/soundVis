@@ -1,6 +1,5 @@
 package chrisRidgers.app;
 import processing.core.*;
-import processing.video.*;
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import java.util.*;
@@ -70,6 +69,11 @@ public class Sketch extends PApplet
 	ripples.remove(i);
 	ripples.trimToSize();
       }
+    }
+    if(frameCount<=player.length()/1000*30){
+    System.out.println("Frame: "+frameCount);
+    System.out.println("Length of Song: "+player.length()/1000*30);
+    saveFrame("./output/frame-######.tif");
     }
   }
 }
