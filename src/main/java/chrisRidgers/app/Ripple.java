@@ -11,7 +11,7 @@ public class Ripple
     parent	= p;                                                            //Insert very basic magic here:  what makes it work.
     x		= (int)parent.map(						//Takes information from drawing window and FFT object to define rippple objects
 	freq,0,128,0+parent.width/100*10,parent.width-parent.width/100*40);
-    y		= (int)parent.height/2;
+    y		= (int)parent.random(0+parent.height/8, parent.height-parent.height/8);
     r		= (int)parent.map(intensity, 0, 255, 0, parent.height/2);
     o		= (int)parent.map(intensity, 0, 255, 128, 255);
     color	= parent.color(freq, 255, 255);					//Color defined as HSB variables, FFT octave controls Hue value

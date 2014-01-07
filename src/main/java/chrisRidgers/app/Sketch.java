@@ -19,7 +19,7 @@ public class Sketch extends PApplet
     player 	= minim.loadFile(track, 2048);				//Defines a buffer size for player object of 2048 bytes
     fft 	= new FFT(player.bufferSize(), player.sampleRate());	//Defines the FFT object to have a buffer size equal to that of the player object
 
-    player.loop();							//Instructs player to repeatedly play the file defined by the track variable
+    player.play();							//Instructs player to repeatedly play the file defined by the track variable
     fft.window(FFT.HAMMING);						//Instructs FFT object to use a 'Hamming Window', reducing noise pickup in samples
     fft.logAverages(20,20);						//Defines a minimum octave of 20Hz, and a divides each  octave into 20 bands.
 
@@ -45,14 +45,16 @@ public class Sketch extends PApplet
 
     fft.forward(player.mix);
     float w = width/(float)fft.avgSize();
-
+    
     for(int i=0;i<fft.avgSize();i++)
     {
+      /*
       rect(								//Defines the rectangle objects used to draw out the frequency spectograph
 	  i*w, height,
 	  i*w+w,
 	  height/1-Math.round(2*20*Math.log10(100*fft.getAvg(i)))
 	  );
+	  */
       if(fft.getAvg(i)>10){						//Defines sensitivity of frequency detection and creates Ripple objects accordingly
 	ripples.add(new Ripple(this,i,fft.getAvg(i)));
       }
@@ -70,10 +72,16 @@ public class Sketch extends PApplet
 	ripples.trimToSize();
       }
     }
-    if(frameCount<=player.length()/1000*30){
-    System.out.println("Frame: "+frameCount);
-    System.out.println("Length of Song: "+player.length()/1000*30);
+    /*
+    if(player.isPlaying())
+    {
+    System.out.println("Saving Frame...");
     saveFrame("./output/frame-######.tif");
     }
+    else
+    {
+      System.out.println("Track Not Playing");
+    }
+    */
   }
 }
