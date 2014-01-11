@@ -1,0 +1,48 @@
+(It is highly recommended that the user move the entire contents of the CD onto their local drive for stability purposes)
+
+
+
+
+
+This folder includes the application source code, as well as a pre compiled Java application located in the target/ directory.
+
+In order to run this application, it is strongly recommended that you install the latest Oracle JDK.  On Mac in particular, you will need version 1.7 in order to successfully run the application, as a result of the Processing libraries used.
+
+The application build process is handled by Maven, which comes pre installed on most OSX releases, and can be installed separately on Windows and Linux machines.
+
+
+
+
+
+IT IS RECOMMENDED THAT PRIOR TO ATTEMPTING TO COMPILE THE APPLICATION THAT YOU BACK UP THE PRE COMPILED JAR PACKAGE.
+
+Steps for compiling:
+
+1.  Open a terminal interface.
+
+2.  Change directory to the project directory (the directory this file resides in).
+
+3.  Run the command "mvn package".
+
+This will output a pre compiled application .jar archive in the /target directory housing the compiled Java byte code and the dependencies as defined in the Maven projects POM file.
+
+
+Some notes about running the application:  The java minim library only supports .aiff, .wav, .au and .mp3 files directly.  As a result, submitting a file of a different type to the application will result in the application crashing with a message telling the user that the file is not recognised.
+
+If you examine the source code (located in src/main/java/) you'll notice some commented code referring to saving frames from the application to disk.  Feel free to to uncomment the code and recompile in order to have the application save the individual frames to disk, but be aware that as a result, certain performance issues may arise, particularly concerning frame rate.  The images are saved in the output directory.
+
+
+
+
+
+
+Steps for running:
+
+1.  Open a terminal interface.
+
+2.  Change directory to the project directory (the directory this file resides in).
+
+3.  Run the command "java -jar target/soundvis-1.0-SNAPSHOT.jar /path/to/audio/file".
+
+
+NOTE:  There are several videos in the output directory demonstrating the application running with several different input files.  These were produced externally using different file inputs in order to demonstrate the application.  In an earlier version of the processing library (<2.1), video output was directly supported from processing, but this feature has since been removed.
